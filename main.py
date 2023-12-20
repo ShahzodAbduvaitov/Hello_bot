@@ -1,6 +1,5 @@
 import telebot
 
-
 bot = telebot.TeleBot('6567424774:AAHercxUd64r4mqrPP_dfm_PsRVkMFHDnXk')
 
 
@@ -11,16 +10,13 @@ def message_start(message):
     bot.send_message(user_id, 'Добро пожаловать, рады вас приветствовать! '
                               'Напишите /help что-бы узнать справочную информацию')
 
-    bot.register_next_step_handler(message, help_info)
 
 
+@bot.message_handler(commands=['help'])
 def help_info(message):
     user_id = message.from_user.id
 
     bot.send_message(user_id, 'Тут находится справочная информация =)')
-
-    bot.register_next_step_handler(message, message_start)
-
 
 
 
